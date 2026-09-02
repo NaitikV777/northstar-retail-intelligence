@@ -38,6 +38,7 @@ npm test
 - [Product roadmap](docs/ROADMAP.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Data model](docs/DATA_MODEL.md)
+- [Analytics and visualization catalog](docs/ANALYTICS_CATALOG.md)
 - [POS integration plan](docs/POS_INTEGRATIONS.md)
 - [AI and automation plan](docs/AI_AUTOMATIONS.md)
 - [Ready-to-file issue backlog](docs/ISSUE_BACKLOG.md)
