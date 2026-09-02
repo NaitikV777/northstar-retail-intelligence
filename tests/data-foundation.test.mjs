@@ -34,8 +34,25 @@ test("migration creates the canonical retail schema and demo records", async () 
   assert.deepEqual(foreignKeyErrors, []);
   assert.match(queryPlan.map((row) => row.detail).join(" "), /idx_orders_location_status_time/);
 
+  database.exec(`
+    INSERT INTO organizations (id, name, currency_code) VALUES ('org-other', 'Other Retailer', 'USD');
+    INSERT INTO locations (id, organization_id, name, timezone) VALUES ('loc-other', 'org-other', 'Other Store', 'UTC');
+    INSERT INTO categories (id, organization_id, name) VALUES ('cat-other', 'org-other', 'Other');
+    INSERT INTO products (id, organization_id, category_id, name) VALUES ('prod-other', 'org-other', 'cat-other', 'Private Product');
+    INSERT INTO variants (id, product_id, sku, price_cents) VALUES ('var-other', 'prod-other', 'OTHER-001', 100);
+  `);
+  const scopedProducts = database.prepare(`
+    SELECT p.id
+    FROM products p
+    INNER JOIN variants v ON v.product_id = p.id
+    WHERE p.organization_id = (SELECT organization_id FROM locations WHERE id = ?)
+    ORDER BY p.id
+  `).all("loc-downtown");
+  assert.equal(scopedProducts.length, 6);
+  assert.equal(scopedProducts.some(({ id }) => id === "prod-other"), false);
+
   database.exec(migration.replaceAll("--> statement-breakpoint", ""));
-  assert.equal(database.prepare("SELECT COUNT(*) AS count FROM products").get().count, 6);
+  assert.equal(database.prepare("SELECT COUNT(*) AS count FROM products").get().count, 7);
   assert.equal(database.prepare("SELECT COUNT(*) AS count FROM inventory_snapshots").get().count, 6);
   database.close();
 });
