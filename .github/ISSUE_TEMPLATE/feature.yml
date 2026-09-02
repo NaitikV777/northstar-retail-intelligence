@@ -1,0 +1,39 @@
+name: Product feature
+description: Propose a focused roadmap capability.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Keep each issue limited to one measurable owner outcome.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Owner problem
+      description: What decision or workflow is difficult today?
+      placeholder: A store owner cannot tell which low-stock items are likely to sell out before the next delivery.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe observable behavior rather than an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data, privacy, and failure states
+      description: List required data, permissions, empty states, and likely failures.
+    validations:
+      required: true

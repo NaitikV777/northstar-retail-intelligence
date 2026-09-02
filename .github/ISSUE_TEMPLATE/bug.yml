@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a reproducible problem in Northstar.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: viewport
+    attributes:
+      label: Browser and screen size
+      placeholder: Chrome 128, 1440 × 900
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Include screenshots only when they do not contain private store or customer data.
