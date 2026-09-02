@@ -2,18 +2,22 @@
 
 ## Current state
 
-Milestone 1 is a client-rendered React dashboard. The data fixtures and interactions live in `app/page.tsx`; the visual system, layout, responsive rules, and motion live in `app/globals.css`. This keeps the prototype easy to inspect while the product language is still being validated.
+Milestone 2 keeps the React dashboard and adds a provider-neutral D1 foundation. The browser requests a typed, read-only dashboard endpoint; that endpoint uses prepared statements to query normalized store, product, inventory, reorder, and daily metric records. The interface shows whether data came from D1 and falls back to explicitly labelled demonstration values if the read service is unavailable.
 
 ```text
 Browser
   └── Dashboard page
       ├── KPI and chart views
       ├── product search/filter state
-      └── product detail drawer
-           └── in-memory demonstration products
+      ├── product detail drawer
+      └── GET /api/dashboard
+           └── prepared D1 queries
+                ├── canonical retail records
+                ├── latest inventory snapshots
+                └── daily store/product metrics
 ```
 
-No database, POS API, email provider, or AI service is called in the current release.
+No POS API, email provider, or AI service is called in the current release. Seeded D1 records are not presented as live POS data.
 
 ## Target architecture
 

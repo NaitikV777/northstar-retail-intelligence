@@ -2,7 +2,7 @@
 
 Northstar is an analytics workspace for convenience stores and grocery chains. It gives an owner a fast view of sales, orders, category performance, stock risk, and individual product health without requiring a spreadsheet.
 
-> **Project status:** Milestone 1 — interactive product and inventory dashboard. POS sync, live persistence, supplier messaging, and predictive AI are deliberately planned for later milestones.
+> **Project status:** Milestone 2 — the interactive dashboard now reads from a durable retail data foundation. CSV import, POS sync, supplier messaging, and predictive AI remain deliberately staged for later increments.
 
 ## Current release
 
@@ -14,8 +14,10 @@ Northstar is an analytics workspace for convenience stores and grocery chains. I
 - Click-through product detail drawer with stock coverage and product-level insight
 - Responsive layout, keyboard-accessible rows, and reduced-motion support
 - Clearly labelled AI preview without pretending to run a live model
+- D1-backed canonical schema for stores, products, variants, sales, inventory, suppliers, provider mappings, and automation audit records
+- Typed dashboard API with prepared queries, explicit freshness metadata, and a safe demonstration-data fallback
 
-All data in this release is realistic demonstration data stored in the page component. No supplier message is sent and no POS account is connected.
+The deployed release uses realistic seeded demonstration records in D1. The page retains a clearly labelled fallback only when the database is unavailable. No supplier message is sent and no POS account is connected.
 
 ## Run locally
 
@@ -23,6 +25,7 @@ Requirements: Node.js 22.13 or newer.
 
 ```bash
 npm install
+npm run db:local
 npm run dev
 ```
 
@@ -32,6 +35,8 @@ Open `http://localhost:3000`. For a production check:
 npm run build
 npm test
 ```
+
+`npm run db:local` builds the current worker and applies the idempotent demonstration migration to the project-local D1 database. Re-run it whenever the migration changes.
 
 ## Documentation
 

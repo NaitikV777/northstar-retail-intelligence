@@ -2,7 +2,7 @@
 
 Northstar is intentionally built in milestones so that each phase can be validated with store owners before the next one begins.
 
-## Milestone 1 — Owner dashboard (current)
+## Milestone 1 — Owner dashboard (complete)
 
 Goal: validate the information hierarchy and daily decision workflow.
 
@@ -15,9 +15,11 @@ Goal: validate the information hierarchy and daily decision workflow.
 
 Acceptance signal: an owner can find a risky product and understand why it needs attention in under one minute.
 
-## Milestone 2 — Data foundation
+## Milestone 2 — Data foundation (in progress)
 
-- Persistent stores, locations, products, suppliers, inventory snapshots, and sales
+- Persistent stores, locations, products, suppliers, inventory snapshots, and sales — complete
+- Provider-neutral external references and automation audit records — complete
+- Database-backed dashboard read API and freshness state — complete
 - User authentication and store membership
 - CSV import for first-time setup
 - Data freshness indicators and import error report
