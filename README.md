@@ -2,10 +2,14 @@
 
 Northstar is an analytics workspace for convenience stores and grocery chains. It gives an owner a fast view of sales, orders, category performance, stock risk, and individual product health without requiring a spreadsheet.
 
-> **Project status:** Milestone 2 — the interactive dashboard now reads from a durable retail data foundation. CSV import, POS sync, supplier messaging, and predictive AI remain deliberately staged for later increments.
+> **Project status:** Milestone 2 — an immersive product experience now leads into an interactive dashboard backed by a durable retail data foundation. CSV import, POS sync, supplier messaging, and predictive AI remain deliberately staged for later increments.
 
 ## Current release
 
+- Immersive marketing landing page with a live WebGL gradient environment
+- Scroll-led story that explains the path from sale to stock signal to owner action
+- Metallic Northstar identity, expressive typography, glass surfaces, and reduced-motion support
+- Dedicated `/dashboard` workspace kept separate from the heavier landing-page visuals
 - Daily KPI cards for net sales, orders, average order value, and low-stock items
 - Animated sales comparison chart with 7, 30, and 90-day views
 - Sales mix by product category
@@ -30,7 +34,7 @@ npm run db:local
 npm run dev
 ```
 
-Open `http://localhost:3000`. For a production check:
+Open `http://localhost:3000` for the landing page or `http://localhost:3000/dashboard` for the working analytics interface. For a production check:
 
 ```bash
 npm run build
@@ -62,6 +66,7 @@ npm test
 ## Technology
 
 - React 19 and TypeScript
+- React Three Fiber, Three.js, and ShaderGradient for the landing-page environment
 - vinext on Vite for a Cloudflare-compatible application build
 - Tailwind CSS tooling with a custom responsive design system
 - Cloudflare D1 persistence with a Drizzle-managed relational schema and tested migrations
@@ -69,7 +74,7 @@ npm test
 ## Repository structure
 
 ```text
-app/                 Dashboard UI and global design system
+app/                 Landing page, dashboard UI, and global design system
 docs/                Product and engineering documentation
 public/              Static assets
 tests/               Rendered-output checks

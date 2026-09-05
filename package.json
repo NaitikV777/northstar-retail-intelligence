@@ -15,9 +15,14 @@
     "db:local": "npm run build && wrangler d1 execute site-creator-d1 --local --file=drizzle/0000_panoramic_stranger.sql --config dist/server/wrangler.json --persist-to .wrangler/state"
   },
   "dependencies": {
+    "@react-three/fiber": "9.7.0",
+    "@shadergradient/react": "2.4.20",
+    "camera-controls": "3.1.2",
     "drizzle-orm": "0.45.2",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "three": "0.185.1",
+    "three-stdlib": "2.36.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
@@ -28,6 +33,7 @@
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@types/three": "0.185.4",
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "0.5.26",
     "drizzle-kit": "0.31.10",

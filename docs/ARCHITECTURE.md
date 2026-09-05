@@ -2,11 +2,14 @@
 
 ## Current state
 
-Milestone 2 keeps the React dashboard and adds a provider-neutral D1 foundation. The browser requests a typed, read-only dashboard endpoint; that endpoint uses prepared statements to query normalized store, product, inventory, reorder, and daily metric records. The interface shows whether data came from D1 and falls back to explicitly labelled demonstration values if the read service is unavailable.
+Milestone 2 separates product storytelling from operational work. The `/` route is an immersive marketing experience with a single, isolated WebGL shader canvas. The `/dashboard` route stays lightweight and requests a typed, read-only dashboard endpoint; that endpoint uses prepared statements to query normalized store, product, inventory, reorder, and daily metric records. The interface shows whether data came from D1 and falls back to explicitly labelled demonstration values if the read service is unavailable.
 
 ```text
 Browser
-  └── Dashboard page
+  ├── Landing page
+  │   ├── isolated shader environment
+  │   └── scroll-led product story
+  └── Dashboard page (/dashboard)
       ├── KPI and chart views
       ├── product search/filter state
       ├── product detail drawer
@@ -63,4 +66,4 @@ POS providers ──webhooks/polling──> Provider adapters
 
 ## Deployment
 
-The project builds to Cloudflare-compatible ESM using vinext and the Sites Vite plugin. D1 and R2 bindings are currently unset in `.openai/hosting.json`; they should be introduced only when persistent records or uploads enter scope.
+The project builds to Cloudflare-compatible ESM using vinext and the Sites Vite plugin. The production application uses the logical `DB` binding for D1; the platform resolves the deployment-specific database identifier. R2 remains out of scope until uploads are introduced.
