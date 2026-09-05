@@ -36,7 +36,7 @@ Status colors must not be communicated by color alone; labels and icons provide 
 
 ## Motion
 
-- The landing hero uses one WebGL shader canvas; it pauses when offscreen and respects reduced-motion preferences.
+- The landing experience uses one fixed WebGL shader canvas across every section; it pauses when the tab is hidden and respects reduced-motion preferences.
 - A sticky signal map and view-timeline reveals turn the landing page into a scroll-led product story.
 - Ambient gradient forms move slowly behind the dashboard.
 - The signal ticker reinforces that the data surface is active.

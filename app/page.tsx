@@ -5,8 +5,8 @@ import "./landing.css";
 export default function LandingPage() {
   return (
     <main className="landing-page">
+      <HeroShader />
       <section className="landing-hero" id="top">
-        <HeroShader />
         <div className="hero-vignette" aria-hidden="true" />
 
         <nav className="landing-nav" aria-label="Landing navigation">

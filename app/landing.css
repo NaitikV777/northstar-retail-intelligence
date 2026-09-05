@@ -1,8 +1,16 @@
 .landing-page {
+  position: relative;
   min-height: 100vh;
+  isolation: isolate;
   color: #f7f4ff;
   background: #0d0b18;
   font-family: var(--font-jakarta), sans-serif;
+}
+
+.landing-page > section,
+.landing-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .landing-hero {
@@ -10,15 +18,18 @@
   min-height: 100svh;
   isolation: isolate;
   overflow: hidden;
-  background: radial-gradient(circle at 76% 45%, #5c45ca55, transparent 27%), #0d0b18;
+  background:
+    radial-gradient(circle at 76% 45%, #5c45ca40, transparent 27%),
+    linear-gradient(180deg, #0b091729 0%, #0b091750 100%);
 }
 
 .hero-shader {
-  position: absolute;
-  inset: -12%;
-  z-index: -3;
-  opacity: 0.85;
-  transform: scale(1.05);
+  position: fixed;
+  inset: -10%;
+  z-index: 0;
+  opacity: 0.92;
+  pointer-events: none;
+  transform: scale(1.04);
 }
 
 .hero-shader canvas {
@@ -337,13 +348,13 @@
 @keyframes card-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-13px) rotate(1deg); } }
 
 .story-section {
-  position: relative;
   padding: 150px max(32px, calc((100vw - 1380px) / 2)) 120px;
   overflow: clip;
   background:
-    radial-gradient(circle at 12% 30%, #604ac82b, transparent 28%),
-    radial-gradient(circle at 88% 70%, #2dbeb51e, transparent 25%),
-    #0d0b18;
+    radial-gradient(circle at 12% 30%, #604ac838, transparent 28%),
+    radial-gradient(circle at 88% 70%, #2dbeb52b, transparent 25%),
+    linear-gradient(180deg, #0d0b18d9, #100c1fc2 55%, #0c1120cf);
+  backdrop-filter: blur(4px);
 }
 
 .landing-section-head {
@@ -547,19 +558,20 @@
 .story-chapter small { color: #776f89; font-size: 8px; }
 
 .signals-section {
-  position: relative;
   padding: 150px max(32px, calc((100vw - 1380px) / 2)) 170px;
-  color: #171329;
+  color: #f7f4ff;
   overflow: hidden;
   background:
-    radial-gradient(circle at 90% 8%, #b4eff0 0, transparent 27%),
-    radial-gradient(circle at 4% 70%, #d8cfff 0, transparent 30%),
-    linear-gradient(150deg, #fbfaff, #f0f3ff 52%, #f7f5ff);
+    radial-gradient(circle at 90% 8%, #52d9d13b 0, transparent 28%),
+    radial-gradient(circle at 4% 70%, #846df044 0, transparent 31%),
+    linear-gradient(150deg, #100c20c9, #18102fba 52%, #0d2630c4);
+  border-block: 1px solid #ffffff12;
+  backdrop-filter: blur(6px);
 }
 
-.signals-head > p { color: #6f59cd; }
-.signals-head h2 em { background: linear-gradient(100deg, #6249dc, #3d8fca 55%, #24a99f); background-clip: text; -webkit-background-clip: text; }
-.signals-head > span { color: #6e687d; }
+.signals-head > p { color: #9b8ade; }
+.signals-head h2 em { background: linear-gradient(100deg, #a48cff, #63cbe7 55%, #65e4d2); background-clip: text; -webkit-background-clip: text; }
+.signals-head > span { color: #b3adbf; }
 
 .dashboard-showcase {
   position: relative;
@@ -675,7 +687,6 @@
 .showcase-alert > b { margin-left: auto; padding: 9px 11px; color: #fff; background: #241d3d; border-radius: 9px; font-size: 7px; }
 
 .roadmap-section {
-  position: relative;
   min-height: 90vh;
   padding: 150px max(32px, calc((100vw - 1380px) / 2));
   display: grid;
@@ -683,7 +694,10 @@
   align-items: center;
   gap: 100px;
   overflow: hidden;
-  background: linear-gradient(145deg, #171229, #211747 55%, #13343f);
+  background:
+    radial-gradient(circle at 10% 30%, #6d55e433, transparent 30%),
+    linear-gradient(145deg, #120e24d9, #211747c7 55%, #102f38cf);
+  backdrop-filter: blur(5px);
 }
 
 .roadmap-orb {
@@ -742,8 +756,9 @@
   display: flex;
   align-items: center;
   color: #8d879c;
-  background: #0c0a15;
+  background: #0c0a15dc;
   border-top: 1px solid #ffffff12;
+  backdrop-filter: blur(18px);
 }
 
 .landing-footer p { margin: 0 auto; font-family: var(--font-syne), sans-serif; font-size: 12px; }

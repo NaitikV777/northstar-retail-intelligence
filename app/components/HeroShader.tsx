@@ -1,33 +1,32 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
 
 export default function HeroShader() {
-  const shellRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isActive, setIsActive] = useState(true);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateMotion = () => setReduceMotion(media.matches);
+    const updateVisibility = () => setIsActive(!document.hidden);
     updateMotion();
+    updateVisibility();
     media.addEventListener("change", updateMotion);
-
-    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.05 });
-    if (shellRef.current) observer.observe(shellRef.current);
+    document.addEventListener("visibilitychange", updateVisibility);
 
     return () => {
       media.removeEventListener("change", updateMotion);
-      observer.disconnect();
+      document.removeEventListener("visibilitychange", updateVisibility);
     };
   }, []);
 
   return (
-    <div className="hero-shader" ref={shellRef} aria-hidden="true">
+    <div className="hero-shader" aria-hidden="true">
       <ShaderGradientCanvas pixelDensity={0.85} fov={45} lazyLoad>
         <ShaderGradient
-          animate={isVisible && !reduceMotion ? "on" : "off"}
+          animate={isActive && !reduceMotion ? "on" : "off"}
           type="waterPlane"
           color1="#1a103c"
           color2="#7559ff"
