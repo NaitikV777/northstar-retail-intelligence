@@ -13,6 +13,7 @@ Northstar is an analytics workspace for convenience stores and grocery chains. I
 - Low-stock filter and inventory status indicators
 - Click-through product detail drawer with stock coverage and product-level insight
 - Responsive layout, keyboard-accessible rows, and reduced-motion support
+- Aurora gradient interface with Syne display typography, glass surfaces, and progressive scroll motion
 - Clearly labelled AI preview without pretending to run a live model
 - D1-backed canonical schema for stores, products, variants, sales, inventory, suppliers, provider mappings, and automation audit records
 - Typed dashboard API with prepared queries, explicit freshness metadata, and a safe demonstration-data fallback
@@ -44,6 +45,7 @@ npm test
 - [Architecture](docs/ARCHITECTURE.md)
 - [Data model](docs/DATA_MODEL.md)
 - [Analytics and visualization catalog](docs/ANALYTICS_CATALOG.md)
+- [Visual system](docs/DESIGN_SYSTEM.md)
 - [POS integration plan](docs/POS_INTEGRATIONS.md)
 - [AI and automation plan](docs/AI_AUTOMATIONS.md)
 - [Ready-to-file issue backlog](docs/ISSUE_BACKLOG.md)
@@ -62,7 +64,7 @@ npm test
 - React 19 and TypeScript
 - vinext on Vite for a Cloudflare-compatible application build
 - Tailwind CSS tooling with a custom responsive design system
-- Cloudflare D1/Drizzle-ready starter structure (not enabled in Milestone 1)
+- Cloudflare D1 persistence with a Drizzle-managed relational schema and tested migrations
 
 ## Repository structure
 

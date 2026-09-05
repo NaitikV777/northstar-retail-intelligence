@@ -143,6 +143,7 @@ export default function Home() {
 
   return (
     <main className="app-shell">
+      <div className="ambient-layer" aria-hidden="true"><span /><span /><span /></div>
       <aside className="sidebar">
         <div className="brand"><span className="brand-mark">N</span><span>Northstar</span></div>
         <nav aria-label="Main navigation">
@@ -169,16 +170,18 @@ export default function Home() {
         </header>
 
         <div className="dashboard-content">
-          <div className="page-heading"><div><p className="eyebrow">TUESDAY, SEPTEMBER 1</p><h1>Good morning, Michael.</h1><p>Here’s how {locationName} is performing today.</p></div><button className="date-button">Today <span>⌄</span></button></div>
+          <div className="page-heading scroll-reveal"><div><p className="eyebrow"><span>LIVE</span> TUESDAY, SEPTEMBER 1</p><h1>Good morning, Michael.<br /><span>Your store is moving.</span></h1><p>See the signals shaping {locationName}—before they become yesterday’s numbers.</p></div><button className="date-button">Today <span>⌄</span></button></div>
 
-          <section className="kpi-grid" aria-label="Key performance indicators">
+          <section className="kpi-grid scroll-reveal" aria-label="Key performance indicators">
             <article className="kpi featured"><div className="kpi-top"><span className="kpi-icon">$</span><small>Net sales</small><span className={`change ${salesChange >= 0 ? "positive" : "negative"}`}>{salesChange >= 0 ? "↗" : "↘"} {Math.abs(salesChange).toFixed(1)}%</span></div><strong>{money(summary.netSalesCents, currency)}</strong><p>{summary.previousNetSalesCents === null ? "No comparison available" : `vs. ${money(summary.previousNetSalesCents, currency)} yesterday`}</p><MiniSparkline positive={salesChange >= 0} /></article>
             <article className="kpi"><div className="kpi-top"><span className="kpi-icon violet">▤</span><small>Orders</small><span className={`change ${orderChange >= 0 ? "positive" : "negative"}`}>{orderChange >= 0 ? "↗" : "↘"} {Math.abs(orderChange).toFixed(1)}%</span></div><strong>{summary.orderCount.toLocaleString("en-CA")}</strong><p>{summary.unitsSold.toLocaleString("en-CA")} units sold today</p><MiniSparkline positive={orderChange >= 0} /></article>
             <article className="kpi"><div className="kpi-top"><span className="kpi-icon amber">◈</span><small>Avg. order value</small><span className={`change ${averageOrderChange >= 0 ? "positive" : "negative"}`}>{averageOrderChange >= 0 ? "↗" : "↘"} {Math.abs(averageOrderChange).toFixed(1)}%</span></div><strong>{money(summary.averageOrderValueCents, currency)}</strong><p>{summary.previousAverageOrderValueCents === null ? "No comparison available" : `vs. ${money(summary.previousAverageOrderValueCents, currency)} yesterday`}</p><MiniSparkline positive={averageOrderChange >= 0} /></article>
             <article className="kpi"><div className="kpi-top"><span className="kpi-icon coral">!</span><small>Low stock</small><span className="change negative">{summary.outOfStockCount} urgent</span></div><strong>{summary.lowStockCount} <small>items</small></strong><p>Across {summary.categoryCount} categories</p><MiniSparkline positive={false} /></article>
           </section>
 
-          <section className="analytics-grid" id="analytics">
+          <div className="signal-ticker scroll-reveal" aria-hidden="true"><div><span>LIVE INVENTORY</span><i>✦</i><span>MARGIN SIGNALS</span><i>✦</i><span>PRODUCT VELOCITY</span><i>✦</i><span>STOCK INTELLIGENCE</span><i>✦</i><span>LIVE INVENTORY</span><i>✦</i><span>MARGIN SIGNALS</span><i>✦</i><span>PRODUCT VELOCITY</span><i>✦</i><span>STOCK INTELLIGENCE</span></div></div>
+
+          <section className="analytics-grid scroll-reveal" id="analytics">
             <article className="panel sales-panel">
               <div className="panel-header"><div><h2>Sales overview</h2><p>Revenue performance over time</p></div><div className="range-picker">{(Object.keys(ranges) as (keyof typeof ranges)[]).map((item) => <button className={range === item ? "active" : ""} key={item} onClick={() => setRange(item)}>{item}</button>)}</div></div>
               <div className="chart-summary"><div><strong>{money(summary.periodNetSalesCents, currency)}</strong><span className={`change ${salesChange >= 0 ? "positive" : "negative"}`}>{salesChange >= 0 ? "↗" : "↘"} {Math.abs(salesChange).toFixed(1)}%</span><p>Total revenue in available period</p></div><div className="legend"><span><i className="legend-dot teal" /> This period</span><span><i className="legend-dot gray" /> Previous</span></div></div>
@@ -188,9 +191,9 @@ export default function Home() {
             <article className="panel category-panel"><div className="panel-header"><div><h2>Sales by category</h2><p>Tracked product sales today</p></div><button className="more-button">•••</button></div><div className="donut-wrap"><div className="donut" style={{ background: categoryGradient }}><div><strong>{money(categoryTotal, currency).replace(/\.\d{2}$/, "")}</strong><span>Tracked</span></div></div></div><div className="category-list">{categoryRows.map((category) => <div className="category-row" key={category.name}><span><i className={`legend-dot ${category.tone}`} />{category.name}</span><strong>{Math.round(category.percent)}%</strong><small>{money(category.netSalesCents, currency).replace(/\.\d{2}$/, "")}</small></div>)}</div></article>
           </section>
 
-          <section className="insight-strip"><span className="ai-glyph">✦</span><div><strong>Northstar insight</strong><p>Milk and bakery items are selling <b>18% faster</b> than usual. Reorder before 2 PM to avoid an estimated <b>$340 in missed sales.</b></p></div><button onClick={() => setStockFilter("low")}>Review items →</button><span className="ai-tag">AI PREVIEW</span></section>
+          <section className="insight-strip scroll-reveal"><span className="ai-glyph">✦</span><div><strong>Northstar insight</strong><p>Milk and bakery items are selling <b>18% faster</b> than usual. Reorder before 2 PM to avoid an estimated <b>$340 in missed sales.</b></p></div><button onClick={() => setStockFilter("low")}>Review items →</button><span className="ai-tag">AI PREVIEW</span></section>
 
-          <section className="panel products-panel" id="products">
+          <section className="panel products-panel scroll-reveal" id="products">
             <div className="panel-header product-header"><div><h2>Product performance</h2><p>Inventory and sales at a glance</p></div><div className="product-actions"><label><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search products" aria-label="Search products" /></label><button className={stockFilter === "low" ? "filter active" : "filter"} onClick={() => setStockFilter(stockFilter === "all" ? "low" : "all")}>≡ {stockFilter === "low" ? "Low stock" : "Filter"}</button><button className="view-all">View all products →</button></div></div>
             <div className="table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Units sold</th><th>Stock</th><th>7-day trend</th><th /></tr></thead><tbody>{filteredProducts.map((product) => { const urgent = product.stock <= product.reorder; return <tr key={product.id} role="button" aria-label={`View insights for ${product.name}`} onClick={() => setSelected(product)} tabIndex={0} onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setSelected(product)}><td><span className="product-image" style={{ background: product.color }}>{product.initials}</span><span><strong>{product.name}</strong><small>{product.sku}</small></span></td><td><span className="category-pill">{product.category}</span></td><td>{money(Math.round(product.price * 100), currency)}</td><td>{product.sold}</td><td><span className={`stock ${product.stock === 0 ? "out" : urgent ? "low" : "good"}`}><i />{product.stock === 0 ? "Out of stock" : urgent ? `${product.stock} left` : `${product.stock} in stock`}</span></td><td><span className={product.trend >= 0 ? "trend positive" : "trend negative"}>{product.trend >= 0 ? "↗" : "↘"} {Math.abs(product.trend)}%</span></td><td><button aria-label={`View ${product.name}`}>›</button></td></tr>})}</tbody></table>{filteredProducts.length === 0 && <div className="empty-state">No products match your filters.</div>}</div>
           </section>
