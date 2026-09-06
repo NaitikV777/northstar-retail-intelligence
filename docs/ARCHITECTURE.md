@@ -2,7 +2,7 @@
 
 ## Current state
 
-Milestone 2 separates product storytelling from operational work. The `/` route is an immersive marketing experience with a single, isolated WebGL shader canvas. The `/dashboard` route stays lightweight and requests a typed, read-only dashboard endpoint; that endpoint uses prepared statements to query normalized store, product, inventory, reorder, and daily metric records. The interface shows whether data came from D1 and falls back to explicitly labelled demonstration values if the read service is unavailable.
+Milestone 2 separates product storytelling from operational work. The `/` route has a continuous WebGL gradient and a separate hero solar system scene that pauses when hidden. Both are isolated to the landing route. The `/dashboard` route stays lightweight and requests a typed, read-only dashboard endpoint; that endpoint uses prepared statements to query normalized store, product, inventory, reorder, and daily metric records. The interface shows whether data came from D1 and falls back to explicitly labelled demonstration values if the read service is unavailable.
 
 ```text
 Browser

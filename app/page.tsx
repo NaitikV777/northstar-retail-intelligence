@@ -1,6 +1,8 @@
 import Link from "next/link";
 import HeroShader from "./components/HeroShader";
+import SolarSystem from "./components/SolarSystem";
 import "./landing.css";
+import "./solar.css";
 
 export default function LandingPage() {
   return (
@@ -19,18 +21,12 @@ export default function LandingPage() {
           <div className="hero-copy">
             <p className="landing-eyebrow"><span /> RETAIL INTELLIGENCE, IN MOTION</p>
             <h1>See the store.<br /><em>Feel the signal.</em></h1>
-            <p className="hero-lede">Northstar turns sales, stock, and product movement into one living view—so neighborhood retailers can act before opportunity becomes history.</p>
+            <p className="hero-lede">Every part of your store affects the next. Northstar brings sales, stock, and product movement into one connected view—helping you keep your business in balance.</p>
             <div className="hero-actions"><Link className="hero-primary" href="/dashboard">Enter the dashboard <span>↗</span></Link><a className="hero-secondary" href="#story">Explore the flow <span>↓</span></a></div>
             <div className="hero-proof"><span><i className="proof-live" /> Database connected</span><span>6 products tracked</span><span>4 stock signals</span></div>
           </div>
 
-          <div className="hero-orbit" aria-label="Live retail metrics preview">
-            <div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" />
-            <div className="metal-star"><span /><i>N</i></div>
-            <article className="orbit-card sales"><small>NET SALES</small><strong>$8,429.60</strong><span>↗ 12.5% today</span></article>
-            <article className="orbit-card stock"><small>STOCK SIGNAL</small><strong>04</strong><span>items need attention</span></article>
-            <article className="orbit-card orders"><small>ORDERS</small><strong>248</strong><span>587 units moving</span></article>
-          </div>
+          <SolarSystem />
         </div>
 
         <div className="hero-scroll" aria-hidden="true"><span /><small>SCROLL TO FOLLOW THE SIGNAL</small></div>
@@ -40,7 +36,7 @@ export default function LandingPage() {
         <div className="landing-section-head story-head">
           <p>FROM TRANSACTION TO DECISION</p>
           <h2>One continuous<br /><em>retail pulse.</em></h2>
-          <span>Every sale changes the shape of your store. Northstar follows that movement and turns it into a decision you can make now.</span>
+          <span>A sale changes inventory. Inventory shapes the next order. Northstar helps you see those connections, so a small disruption can get attention before it spreads.</span>
         </div>
 
         <div className="story-track">

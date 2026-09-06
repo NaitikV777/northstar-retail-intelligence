@@ -36,6 +36,8 @@ Status colors must not be communicated by color alone; labels and icons provide 
 
 ## Motion
 
+- The hero solar system represents Northstar coordinating sales, inventory, products, suppliers, orders, and insights. It is a visual metaphor, not an astronomical simulation or a claim that future integrations already operate.
+- A dedicated React Three Fiber scene renders the sun and six planets. Orbits pause when the scene is faded out, outside the viewport, the tab is hidden, or reduced motion is requested. A scroll-position opacity curve fades the entire figure and reverses on upward scrolling; it does not intercept scrolling.
 - The landing experience uses one fixed WebGL shader canvas across every section; it pauses when the tab is hidden and respects reduced-motion preferences.
 - A sticky signal map and view-timeline reveals turn the landing page into a scroll-led product story.
 - Ambient gradient forms move slowly behind the dashboard.
@@ -68,4 +70,4 @@ Record the source repository and license in this document before shipping any co
 - [`paper-design/liquid-logo`](https://github.com/paper-design/liquid-logo) informed the dimensional identity exploration only. Its source was not copied or adapted because it uses the PolyForm Shield license.
 - [`dashersw/liquid-glass-js`](https://github.com/dashersw/liquid-glass-js) was evaluated but is not installed or used in the shipped interface.
 
-The metallic Northstar symbol, orbital metrics, layout, and animation system are original CSS and React work for this project.
+The solar system workflow diagram, layout, and animation system are original Three.js, CSS, and React work for this project. The earlier metallic hero symbol has been replaced; the small navigation wordmark remains.

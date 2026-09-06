@@ -8,7 +8,8 @@ Northstar is an analytics workspace for convenience stores and grocery chains. I
 
 - Immersive marketing landing page with one continuous WebGL gradient environment from hero to footer
 - Scroll-led story that explains the path from sale to stock signal to owner action
-- Metallic Northstar identity, expressive typography, glass surfaces, and reduced-motion support
+- A solar system of connected retail workflows, with orbiting planets and a reversible scroll fade
+- Expressive typography, glass surfaces, and reduced-motion support
 - Dedicated `/dashboard` workspace kept separate from the heavier landing-page visuals
 - Daily KPI cards for net sales, orders, average order value, and low-stock items
 - Animated sales comparison chart with 7, 30, and 90-day views
