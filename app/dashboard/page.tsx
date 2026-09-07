@@ -1,7 +1,9 @@
 "use client";
 
+/* eslint @next/next/no-html-link-for-pages: "off" -- Native navigation avoids the deployed vinext Link transition failure between landing and dashboard. */
+
+
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 
 type Product = { id: string; name: string; sku: string; category: string; price: number; sold: number; stock: number; reorder: number; trend: number; color: string; initials: string };
 
@@ -146,7 +148,7 @@ export default function DashboardPage() {
     <main className="app-shell">
       <div className="ambient-layer" aria-hidden="true"><span /><span /><span /></div>
       <aside className="sidebar">
-        <Link className="brand" href="/"><span className="brand-mark">N</span><span>Northstar</span></Link>
+        <a className="brand" href="/"><span className="brand-mark">N</span><span>Northstar</span></a>
         <nav aria-label="Main navigation">
           <p className="nav-label">WORKSPACE</p>
           <a className="nav-item active" href="#overview"><span>⌂</span> Overview</a>

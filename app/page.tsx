@@ -1,4 +1,4 @@
-import Link from "next/link";
+/* eslint @next/next/no-html-link-for-pages: "off" -- Native navigation avoids the deployed vinext Link transition failure between landing and dashboard. */
 import HeroShader from "./components/HeroShader";
 import SolarSystem from "./components/SolarSystem";
 import "./landing.css";
@@ -12,9 +12,9 @@ export default function LandingPage() {
         <div className="hero-vignette" aria-hidden="true" />
 
         <nav className="landing-nav" aria-label="Landing navigation">
-          <Link className="landing-brand" href="#top"><span className="landing-star small" />Northstar</Link>
+          <a className="landing-brand" href="#top"><span className="landing-star small" />Northstar</a>
           <div className="landing-links"><a href="#story">How it works</a><a href="#signals">Signals</a><a href="#roadmap">Roadmap</a></div>
-          <Link className="nav-dashboard" href="/dashboard">Open dashboard <span>↗</span></Link>
+          <a className="nav-dashboard" href="/dashboard">Open dashboard <span>↗</span></a>
         </nav>
 
         <div className="hero-grid">
@@ -22,7 +22,7 @@ export default function LandingPage() {
             <p className="landing-eyebrow"><span /> RETAIL INTELLIGENCE, IN MOTION</p>
             <h1>See the store.<br /><em>Feel the signal.</em></h1>
             <p className="hero-lede">Every part of your store affects the next. Northstar brings sales, stock, and product movement into one connected view—helping you keep your business in balance.</p>
-            <div className="hero-actions"><Link className="hero-primary" href="/dashboard">Enter the dashboard <span>↗</span></Link><a className="hero-secondary" href="#story">Explore the flow <span>↓</span></a></div>
+            <div className="hero-actions"><a className="hero-primary" href="/dashboard">Enter the dashboard <span>↗</span></a><a className="hero-secondary" href="#story">Explore the flow <span>↓</span></a></div>
             <div className="hero-proof"><span><i className="proof-live" /> Database connected</span><span>6 products tracked</span><span>4 stock signals</span></div>
           </div>
 
@@ -66,7 +66,7 @@ export default function LandingPage() {
 
         <div className="dashboard-showcase">
           <div className="showcase-glow" aria-hidden="true" />
-          <div className="showcase-nav"><span className="landing-star small" /><b>Northstar</b><i>Downtown Market</i><Link href="/dashboard">Open live view ↗</Link></div>
+          <div className="showcase-nav"><span className="landing-star small" /><b>Northstar</b><i>Downtown Market</i><a href="/dashboard">Open live view ↗</a></div>
           <div className="showcase-grid">
             <article className="showcase-main"><div className="showcase-label"><span>REVENUE PULSE</span><i>30 DAYS</i></div><strong>$52,840</strong><small>Available period revenue <b>↗ 12.5%</b></small><div className="showcase-bars" aria-hidden="true">{[36,49,44,58,53,72,66,82,75,94].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}</div></article>
             <article className="showcase-kpi violet"><span>ORDERS</span><strong>248</strong><small>587 units today</small></article>
@@ -78,7 +78,7 @@ export default function LandingPage() {
 
       <section className="roadmap-section" id="roadmap">
         <div className="roadmap-orb" aria-hidden="true"><span className="landing-star" /></div>
-        <div className="roadmap-copy"><p>BUILT TO GROW WITH THE STORE</p><h2>Start with clarity.<br /><em>Add intelligence carefully.</em></h2><span>The dashboard and retail data foundation are working now. POS sync, supplier automation, advanced analytics, and explainable AI arrive in controlled milestones.</span><Link className="hero-primary" href="/dashboard">Explore the working dashboard <b>↗</b></Link></div>
+        <div className="roadmap-copy"><p>BUILT TO GROW WITH THE STORE</p><h2>Start with clarity.<br /><em>Add intelligence carefully.</em></h2><span>The dashboard and retail data foundation are working now. POS sync, supplier automation, advanced analytics, and explainable AI arrive in controlled milestones.</span><a className="hero-primary" href="/dashboard">Explore the working dashboard <b>↗</b></a></div>
         <div className="roadmap-list">
           <article className="complete"><span>01</span><div><strong>Owner dashboard</strong><small>Live interface and product intelligence</small></div><i>COMPLETE</i></article>
           <article className="complete"><span>02</span><div><strong>Retail data foundation</strong><small>Persistent, provider-neutral records</small></div><i>COMPLETE</i></article>
@@ -87,7 +87,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <footer className="landing-footer"><Link className="landing-brand" href="#top"><span className="landing-star small" />Northstar</Link><p>Retail intelligence, in motion.</p><span>© 2026 NORTHSTAR</span></footer>
+      <footer className="landing-footer"><a className="landing-brand" href="#top"><span className="landing-star small" />Northstar</a><p>Retail intelligence, in motion.</p><span>© 2026 NORTHSTAR</span></footer>
     </main>
   );
 }

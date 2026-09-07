@@ -22,6 +22,8 @@ Browser
 
 No POS API, email provider, or AI service is called in the current release. Seeded D1 records are not presented as live POS data.
 
+Landing/dashboard navigation uses native anchors. The deployed vinext Link handler failed during prefetch and client transitions (`TypeError: ... is not a function`), preventing dashboard entry even though direct server requests worked. Full-document navigation avoids that runtime dependency, supports keyboard and modified clicks, and unloads the landing canvases. Keep this boundary until a framework update is verified with production browser navigation in both directions.
+
 ## Target architecture
 
 ```text
